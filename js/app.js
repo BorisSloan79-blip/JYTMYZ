@@ -163,7 +163,7 @@ const App = {
     drawCard() {
         const cardFace = document.querySelector('.card-back');
         const card = document.querySelector('.topic-card');
-        const topic = TOPICS;
+        const topic = TOPICS[Math.floor(Math.random() * TOPICS.length)];
         
         // 简单的翻转动画逻辑
         card.style.transform = "rotateY(90deg)";
@@ -189,6 +189,7 @@ const App = {
 window.App = App; // 暴露给全局以便 HTML 调用 onclick
 
 document.addEventListener('DOMContentLoaded', () => App.init());
+
 
 
 
