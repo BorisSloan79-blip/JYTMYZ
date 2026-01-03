@@ -2,7 +2,8 @@
 
 const App = {
     state: {
-        loveCoins: parseInt(localStorage.getItem('love_coins') || 100),cart:,dayProgress: parseInt(localStorage.getItem('day_progress') || 0)
+        loveCoins: parseInt(localStorage.getItem('love_coins') || 100)，
+        dayProgress: parseInt(localStorage.getItem('day_progress') || 0)，
     },
 
     init() {
@@ -188,4 +189,5 @@ const App = {
 window.App = App; // 暴露给全局以便 HTML 调用 onclick
 
 document.addEventListener('DOMContentLoaded', () => App.init());
+
 
