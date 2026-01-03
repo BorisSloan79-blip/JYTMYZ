@@ -123,7 +123,7 @@ const App = {
         document.body.removeChild(textarea);
 
         alert("点单成功！\n\n订单内容已复制，快去发给马永哲吧~");
-        this.state.cart =;
+        this.state.cart = [];
         document.getElementById('cart-count').textContent = "";
     },
 
@@ -189,6 +189,7 @@ const App = {
 window.App = App; // 暴露给全局以便 HTML 调用 onclick
 
 document.addEventListener('DOMContentLoaded', () => App.init());
+
 
 
 
