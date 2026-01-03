@@ -51,8 +51,22 @@
         </div>
 
         <div class="card-deck">
-            <div class="topic-card">
-                <div>❓</div>
+           <!-- 抽卡卡牌 -->
+<div class="card-scene">
+  <div class="topic-card" id="topicCard">
+
+    <!-- 正面 -->
+    <div class="card-face card-front">
+      <div class="front-text">点击抽取今日话题 💗</div>
+    </div>
+
+    <!-- 背面 -->
+    <div class="card-face card-back" id="cardBack">
+      <!-- JS 会往这里塞内容 -->
+    </div>
+
+  </div>
+</div>
                 <div style="font-size:14px; margin-top:10px;">点击抽取今日话题</div>
             </div>
             <div class="card-back"></div>
@@ -82,4 +96,5 @@
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
 </body>
+
 </html>
