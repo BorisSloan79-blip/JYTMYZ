@@ -309,4 +309,21 @@ body {
 @keyframes zoomIn {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
+
 }
+<!-- 抽卡卡牌 -->
+<div class="card-scene">
+  <div class="topic-card" id="topicCard">
+
+    <!-- 正面 -->
+    <div class="card-face card-front">
+      <div class="front-text">点击抽取今日话题 💗</div>
+    </div>
+
+    <!-- 背面 -->
+    <div class="card-face card-back" id="cardBack">
+      <!-- JS 会往这里塞内容 -->
+    </div>
+
+  </div>
+</div>
