@@ -8,9 +8,7 @@ const CONFIG = {
 
 function checkLogin() {
     // 如果在主页但没登录，踢回 index.html
-    const isLoginPage = window.location.pathname.endsWith('index.html') |
-
-| window.location.pathname.endsWith('/');
+    const isLoginPage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
     const isLoggedIn = localStorage.getItem(CONFIG.KEY) === 'true';
 
     if (!isLoggedIn &&!isLoginPage) {
@@ -29,4 +27,5 @@ function login(code) {
 }
 
 // 页面加载即检查
+
 checkLogin();
