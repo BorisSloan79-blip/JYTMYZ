@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>马永哲 & 彤彤的小窝</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div style="font-size:50px; margin-bottom:20px; animation: heartbeat 1.5s infinite;">🏠</div>
+        <h1 class="login-title">欢迎回家</h1>
+        <p class="login-subtitle">马永哲 & 彤彤 的专属空间</p>
+        
+        <input type="password" id="passcode" class="input-box" placeholder="请输入我们的纪念日或暗号" inputmode="numeric">
+        <button class="btn" onclick="tryLogin()">进 入</button>
+        <p id="error-msg" style="color:var(--primary); margin-top:15px; font-size:14px; opacity:0;">暗号不对哦，是不是马永哲又改密码了？</p>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        function tryLogin() {
+            const code = document.getElementById('passcode').value;
+            const success = login(code);
+            if(success) {
+                window.location.href = 'app.html';
+            } else {
+                const msg = document.getElementById('error-msg');
+                msg.style.opacity = 1;
+                setTimeout(() => msg.style.opacity = 0, 2000);
+            }
+        }
+        
+        // 增加回车登录
+        document.getElementById('passcode').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') tryLogin();
+        });
+    </script>
+    <style>
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</body>
+</html>
