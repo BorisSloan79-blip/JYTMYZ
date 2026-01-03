@@ -160,35 +160,34 @@ const App = {
     },
 
     // --- 抽卡系统 ---
-    drawCard() {
-        const cardFace = document.querySelector('.card-back');
-        const card = document.querySelector('.topic-card');
-        const topic = TOPICS[Math.floor(Math.random() * TOPICS.length)];
-        
-        // 简单的翻转动画逻辑
-        card.style.transform = "rotateY(90deg)";
-        
-        setTimeout(() => {
-            cardFace.innerHTML = `
-                <div style="font-size:12px; color:#999; margin-bottom:10px;">${topic.type}话题</div>
-                <div style="font-size:18px; line-height:1.5;">${topic.content}</div>
-                <div style="margin-top:20px; font-size:12px; color:var(--primary);">请马永哲和彤彤轮流回答哦</div>
-            `;
-            card.style.display = 'none'; // 隐藏封面
-            
-            // 这里其实应该用 CSS class 控制翻转，为了简化代码直接替换内容演示
-            // 实际代码中，建议结构不动，只改文字
-            const resultArea = document.getElementById('card-result');
-            resultArea.innerHTML = cardFace.innerHTML;
-            resultArea.style.display = 'block';
-            document.getElementById('draw-card-btn').textContent = "再抽一张";
-        }, 300);
-    }
-};
+   drawCard() {
+  const card = document.getElementById('topicCard');
+  const cardBack = document.getElementById('cardBack');
+
+  const topic = TOPICS[Math.floor(Math.random() * TOPICS.length)];
+
+  // 填充背面内容
+  cardBack.innerHTML = `
+    <div class="card-tag">${topic.type}话题</div>
+    <div class="card-question">${topic.content}</div>
+    <div class="card-tip">请马永哲和彤彤轮流回答 💗</div>
+  `;
+
+  // 翻转卡片
+  if (card.classList.contains('flipped')) {
+    card.classList.remove('flipped');
+    setTimeout(() => card.classList.add('flipped'), 100);
+  } else {
+    card.classList.add('flipped');
+  }
+
+  document.getElementById('draw-card-btn').textContent = "再抽一张";
+}
 
 window.App = App; // 暴露给全局以便 HTML 调用 onclick
 
 document.addEventListener('DOMContentLoaded', () => App.init());
+
 
 
 
